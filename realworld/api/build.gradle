@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version "2.1.7.RELEASE"
+}
+
+description = 'MSJC Web Application Api'
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.google.cloud.tools.jib'
+
+apply from: "./docker.gradle"
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    api project(":realworld:application")
+
+    implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
+    implementation "mysql:mysql-connector-java:${mysqlConnectorJavaVersion}"
+
+    implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:${pahoMqttVersion}"
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+    implementation "com.auth0:java-jwt:${javaJwtVersion}"
+    implementation "com.github.xiaoymin:knife4j-spring-boot-starter:${knifeDocVersion}"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation "io.micrometer:micrometer-registry-prometheus:${micrometerRegistryPrometheusVersion}"
+
+    implementation "org.hsqldb:hsqldb:${hsqldbVersion}"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}

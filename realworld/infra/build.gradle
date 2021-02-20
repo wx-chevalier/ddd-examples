@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.h2database:h2:1.4.197"
+        classpath "mysql:mysql-connector-java:8.0.17"
+    }
+}
+
+plugins {
+    id "org.flywaydb.flyway" version "6.2.2"
+}
+
+description = 'MSJC Realworld Application Infrastructure'
+
+dependencies {
+
+    api project(":realworld:domain")
+
+    implementation "com.sun.mail:javax.mail:${javaxMailVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-freemarker:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-mail:${springBootVersion}"
+    implementation "com.aliyun:hitsdb-client:${aliyunHitsdbClientVersion}"
+    api "io.freefair.okhttp-spring-boot:okhttp3-spring-boot-starter:${okhttpStarterVersion}"
+    api "org.redisson:redisson-spring-boot-starter:${redissonVersion}"
+
+    api "com.aliyun.oss:aliyun-sdk-oss:${aliyunSdkOssVersion}"
+    api "com.aliyun:aliyun-java-sdk-core:${aliyunJavaSdkCoreVersion}"
+    api files('lib/taobao-sdk-java-auto_1479188381469-20191030.jar')
+
+    api "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    api "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    api "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+    api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
+    api "mysql:mysql-connector-java:${mysqlConnectorJavaVersion}"
+
+    api "com.alibaba:easyexcel:${easyExcelVersion}"
+
+    api "org.springframework.data:spring-data-commons:${springBootVersion}"
+
+    // https://github.com/Wechat-Group/WxJava
+    api "com.github.binarywang:weixin-java-pay:${wechatPaySdkVersion}"
+    api "com.github.binarywang:weixin-java-mp:${wechatPaySdkVersion}"
+
+    testImplementation "org.hsqldb:hsqldb:${hsqldbVersion}"
+    testImplementation "com.h2database:h2:${h2dbVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation 'io.rest-assured:rest-assured:3.1.1'
+    testImplementation 'io.rest-assured:spring-mock-mvc:3.1.1'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}

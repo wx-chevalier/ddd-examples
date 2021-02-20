@@ -1,0 +1,6 @@
+singleServerConfig:
+  address: "redis://localhost:6379"
+  database: 0
+threads: 0
+nettyThreads: 0
+codec: !<org.redisson.codec.JsonJacksonCodec> {}

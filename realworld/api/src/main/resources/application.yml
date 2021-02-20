@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test-db?allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: roottoor
+
+application:
+  datasource:
+    test-db:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/test-db?allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: roottoor
+  security:
+    jwt:
+      secret: test-jwt-secret
+
+logging:
+  level:
+    web: INFO
+    com.msjc: DEBUG
+    org.springframework: ERROR

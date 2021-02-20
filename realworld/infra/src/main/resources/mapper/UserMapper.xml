@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.msjc.realworld.infra.dmr.mapper.UserMapper">
+  <!--    <insert id="insert">-->
+  <!--        insert into users (id, username, email, password, bio, image) values(-->
+  <!--          #{user.id},-->
+  <!--          #{user.username},-->
+  <!--          #{user.email},-->
+  <!--          #{user.password},-->
+  <!--          #{user.bio},-->
+  <!--          #{user.image}-->
+  <!--        )-->
+  <!--    </insert>-->
+
+  <!--    <update id="update">-->
+  <!--        update users-->
+  <!--          <set>-->
+  <!--              <if test="user.username != ''">username = #{user.username},</if>-->
+  <!--              <if test="user.email != ''">email = #{user.email},</if>-->
+  <!--              <if test="user.password != ''">password = #{user.password},</if>-->
+  <!--              <if test="user.bio != ''">bio = #{user.bio},</if>-->
+  <!--              <if test="user.image != ''">image = #{user.image}</if>-->
+  <!--          </set>-->
+  <!--        where id = #{user.id}-->
+  <!--    </update>-->
+
+  <insert id="saveRelation">
+    insert into follows(user_id, follow_id)
+    values (#{followRelation.userId}, #{followRelation.targetId})
+  </insert>
+
+  <delete id="deleteRelation">
+    delete
+    from follows
+    where user_id = #{followRelation.userId}
+      and follow_id = #{followRelation.targetId}
+  </delete>
+  <select id="findByUsername" resultMap="user">
+    select *
+    from users
+    where username = #{username}
+  </select>
+  <select id="findByEmail" resultMap="user">
+    select id, username, email, password, bio, image
+    from users
+    where email = #{email}
+  </select>
+  <select id="findById" resultMap="user">
+    select id, username, email, password, bio, image
+    from users
+    where id = #{id}
+  </select>
+  <select id="findRelation" resultMap="follow">
+    SELECT F.user_id   followUserId,
+           F.follow_id followTargetId
+    from follows F
+    where F.user_id = #{userId}
+      and F.follow_id = #{targetId}
+  </select>
+
+  <resultMap id="follow" type="com.msjc.realworld.domain.user.FollowRelationVO">
+    <result column="followUserId" property="userId"/>
+    <result column="followTargetId" property="targetId"/>
+  </resultMap>
+
+  <resultMap id="user" type="com.msjc.realworld.domain.user.UserDO">
+    <id column="id" property="id"/>
+    <result column="username" property="username"/>
+    <result column="email" property="email"/>
+    <result column="password" property="password"/>
+    <result column="bio" property="bio"/>
+    <result column="image" property="image"/>
+  </resultMap>
+</mapper>

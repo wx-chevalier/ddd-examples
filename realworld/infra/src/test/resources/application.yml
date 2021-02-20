@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: debug
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml

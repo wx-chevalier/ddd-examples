@@ -1,0 +1,29 @@
+description = 'MSJC Web Application'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    api project(":realworld:infra")
+
+    implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
+    implementation "mysql:mysql-connector-java:${mysqlConnectorJavaVersion}"
+
+    implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:${pahoMqttVersion}"
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+    implementation "com.auth0:java-jwt:${javaJwtVersion}"
+    implementation "com.github.xiaoymin:knife4j-spring-boot-starter:${knifeDocVersion}"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+
+    implementation "io.micrometer:micrometer-registry-prometheus:${micrometerRegistryPrometheusVersion}"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}

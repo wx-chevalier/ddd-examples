@@ -1,0 +1,1 @@
+classpath:db/migration/V1__create_tables.sql

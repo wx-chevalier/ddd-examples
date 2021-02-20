@@ -1,0 +1,21 @@
+dependencies {
+
+    api project(':udma:core')
+
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "com.github.xiaoymin:knife4j-spring-boot-starter:${knifeDocVersion}"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+
+    api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
+
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}

@@ -1,0 +1,37 @@
+dependencies {
+    api "io.vavr:vavr:${vavrVersion}"
+    api "io.vavr:vavr-jackson:${vavrVersion}"
+
+    api "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    api "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    api "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    api "com.fasterxml.jackson.module:jackson-module-parameter-names:${jacksonVersion}"
+    api "com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}"
+    api "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jacksonVersion}"
+    api "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
+    api "com.googlecode.libphonenumber:libphonenumber:${libphonenumberVersion}"
+
+    api "org.modelmapper:modelmapper:${modelmapperVersion}"
+    api "com.github.spullara.mustache.java:compiler:${mustacheJavaCompilerVersion}"
+
+    api "com.google.guava:guava:${guavaVersion}"
+    api "org.slf4j:slf4j-api:${slf4jVersion}"
+
+    // 强制指定依赖的版本：com.aliyun.oss:aliyun-sdk-oss
+    implementation('org.apache.httpcomponents:httpclient') {
+        version {
+            strictly '4.5.3'
+        }
+    }
+
+
+    api "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    api "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
+    api "org.hsqldb:hsqldb:${hsqldbVersion}"
+    api "com.h2database:h2:${h2dbVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "msjc-be.fullname" . }}
+  labels:
+    {{- include "msjc-be.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      # see deployment containers[0].ports
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "msjc-be.selectorLabels" . | nindent 4 }}

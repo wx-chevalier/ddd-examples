@@ -1,0 +1,19 @@
+rootProject.name = 'ms-java-spring-app'
+
+// UDMA
+include ':udma:core'
+project(':udma:core').projectDir = new File("$rootDir/udma/core")
+
+// Realworld App
+include ':realworld:domain'
+project(':realworld:domain').projectDir = new File("$rootDir/realworld/domain")
+
+include ':realworld:infra'
+project(':realworld:infra').projectDir = new File("$rootDir/realworld/infra")
+
+include ':realworld:api'
+project(':realworld:api').projectDir = new File("$rootDir/realworld/api")
+
+include ':realworld:application'
+project(':realworld:application').projectDir = new File("$rootDir/realworld/application")
+

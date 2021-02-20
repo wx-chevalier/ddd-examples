@@ -1,0 +1,20 @@
+jib {
+    from {
+        image = "openjdk:8-jre-slim"
+    }
+    to {
+        image = "registry.cn-shanghai.aliyuncs.com/msjc/msjc-web:latest"
+    }
+    container {
+        entrypoint = ["/entrypoint.sh"]
+        ports = ["8080"]
+        environment = [
+                "BEFORE_START_SLEEP": "0"
+        ]
+        creationTime = "USE_CURRENT_TIMESTAMP"
+    }
+    extraDirectories {
+        paths = file("src/main/jib")
+        permissions = ["/entrypoint.sh": "755"]
+    }
+}

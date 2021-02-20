@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.msjc.realworld.infra.dmr.mapper.CommentMapper">
+    <select id="findById" resultMap="comment">
+        select
+          id commentId,
+          body commentBody,
+          user_id commentUserId,
+          article_id commentArticleId,
+          created_at commentCreatedAt
+        from comments
+        where id = #{id} and article_id = #{articleId}
+    </select>
+    <resultMap id="comment" type="com.msjc.realworld.domain.comment.CommentDO">
+        <id column="commentId" property="id"/>
+        <result column="commentBody" property="body"/>
+        <result column="commentUserId" property="userId"/>
+        <result column="commentArticleId" property="articleId"/>
+        <result column="commentCreatedAt" property="createdAt"/>
+    </resultMap>
+</mapper>
