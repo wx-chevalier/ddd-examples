@@ -72,7 +72,7 @@ Migrations。
 - 本地部署
 
 ```sh
-cp conf/env.tpl .dev.env
+cp config/env.tpl .dev.env
 # 设定 .dev.env 中的环境变量
 
 # 构建、推送镜像
@@ -103,6 +103,8 @@ git push --tags
 
 See the [open issues](https://github.com/wx-chevalier/ms-java-commons/issues) for a list of proposed features (and known issues).
 
+- [ ] 支持 Spring Native
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -126,12 +128,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Acknowledgements
 
 - [Awesome-Lists](https://github.com/wx-chevalier/Awesome-Lists): 📚 Guide to Galaxy, curated, worthy and up-to-date links/reading list for ITCS-Coding/Algorithm/SoftwareArchitecture/AI. 💫 ITCS-编程/算法/软件架构/人工智能等领域的文章/书籍/资料/项目链接精选。
-
 - [Awesome-CS-Books](https://github.com/wx-chevalier/Awesome-CS-Books): :books: Awesome CS Books/Series(.pdf by git lfs) Warehouse for Geeks, ProgrammingLanguage, SoftwareEngineering, Web, AI, ServerSideApplication, Infrastructure, FE etc. :dizzy: 优秀计算机科学与技术领域相关的书籍归档。
-
 - [Hutool #Project#](https://www.hutool.cn/): A set of com.udma.core.tools that keep Java sweet.
-
 - [freedom](https://github.com/8treenet/freedom): freedom 是一个基于六边形架构的框架，可以支撑充血的领域模型范式。
+- [whatsmars #Project#](https://github.com/javahongxi/whatsmars): Java生态研究(Spring Boot + Redis + Dubbo + RocketMQ + Elasticsearch)🔥🔥🔥🔥🔥
 
 ## Copyright & More | 延伸阅读
 

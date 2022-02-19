@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.msjc.realworld.infra.dmr.mapper.ArticleMapper">
+<mapper namespace="icu.ngte.realworld.infra.dmr.mapper.ArticleMapper">
   <!--    <insert id="insert">-->
   <!--        insert into articles(id, slug, title, description, body, user_id, created_at, updated_at)-->
   <!--        values(-->
@@ -85,7 +85,7 @@
     where A.id = #{id}
   </select>
 
-  <select id="findTag" resultType="com.msjc.realworld.domain.article.TagDO">
+  <select id="findTag" resultType="icu.ngte.realworld.domain.article.TagDO">
     select id, name
     from tags
     where name = #{tagName}
@@ -96,7 +96,7 @@
     where A.slug = #{slug}
   </select>
 
-  <resultMap id="article" type="com.msjc.realworld.domain.article.ArticleDO">
+  <resultMap id="article" type="icu.ngte.realworld.domain.article.ArticleDO">
     <id column="articleId" property="id"/>
     <result column="articleUserId" property="userId"/>
     <result column="articleTitle" property="title"/>
@@ -108,7 +108,7 @@
     <collection property="tags" ofType="arraylist" resultMap="tag"/>
   </resultMap>
 
-  <resultMap id="tag" type="com.msjc.realworld.domain.article.TagDO">
+  <resultMap id="tag" type="icu.ngte.realworld.domain.article.TagDO">
     <id column="tagId" property="id"/>
     <result column="tagName" property="name"/>
   </resultMap>

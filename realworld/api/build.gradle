@@ -21,6 +21,7 @@ dependencies {
 
     implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusBootStarterVersion}"
     implementation "mysql:mysql-connector-java:${mysqlConnectorJavaVersion}"
+    implementation "com.alibaba:druid-spring-boot-starter:${druidSpringBootStarterVersion}"
 
     implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:${pahoMqttVersion}"
     implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
@@ -30,11 +31,10 @@ dependencies {
     implementation "com.auth0:java-jwt:${javaJwtVersion}"
     implementation "com.github.xiaoymin:knife4j-spring-boot-starter:${knifeDocVersion}"
     implementation "javax.validation:validation-api:${validationApiVersion}"
+    implementation 'io.jsonwebtoken:jjwt:0.9.0'
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation "io.micrometer:micrometer-registry-prometheus:${micrometerRegistryPrometheusVersion}"
-
-    implementation "org.hsqldb:hsqldb:${hsqldbVersion}"
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"

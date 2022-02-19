@@ -49,6 +49,7 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     testImplementation 'io.rest-assured:rest-assured:3.1.1'
     testImplementation 'io.rest-assured:spring-mock-mvc:3.1.1'
+    testImplementation 'it.ozimov:embedded-redis:0.7.2'
 }
 
 test {

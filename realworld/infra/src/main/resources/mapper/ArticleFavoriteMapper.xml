@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.msjc.realworld.infra.dmr.mapper.ArticleFavoriteMapper">
+<mapper namespace="icu.ngte.realworld.infra.dmr.mapper.ArticleFavoriteMapper">
     <insert id="insertArticleFavorite">
         insert into article_favorites (article_id, user_id) values (#{articleFavorite.articleId}, #{articleFavorite.userId})
     </insert>
@@ -14,7 +14,7 @@
           from article_favorites AF
           where AF.article_id = #{articleId} and AF.user_id = #{userId}
     </select>
-    <resultMap id="articleFavorite" type="com.msjc.realworld.domain.favorite.ArticleFavoriteVO">
+    <resultMap id="articleFavorite" type="icu.ngte.realworld.domain.favorite.ArticleFavoriteVO">
         <result column="articleFavoriteArticleId" property="articleId"/>
         <result column="articleFavoriteUserId" property="userId"/>
     </resultMap>

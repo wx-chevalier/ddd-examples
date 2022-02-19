@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="transfer.data">
-    <resultMap id="favoriteCount" type="com.msjc.realworld.infra.dmr.data.ArticleFavoriteCount">
+    <resultMap id="favoriteCount" type="icu.ngte.realworld.infra.dmr.data.ArticleFavoriteCount">
         <constructor>
             <idArg column="id" javaType="long"/>
             <arg column="favoriteCount" javaType="integer"/>
         </constructor>
     </resultMap>
 
-    <resultMap id="profileData" type="com.msjc.realworld.infra.dmr.data.ProfileData">
+    <resultMap id="profileData" type="icu.ngte.realworld.infra.dmr.data.ProfileData">
         <id column="userId" property="id"/>
         <result column="userUsername" property="username"/>
         <result column="userBio" property="bio"/>
         <result column="userImage" property="image"/>
     </resultMap>
 
-    <resultMap id="articleData" type="com.msjc.realworld.infra.dmr.data.ArticleData">
+    <resultMap id="articleData" type="icu.ngte.realworld.infra.dmr.data.ArticleData">
         <id column="articleId" property="id"/>
         <result column="articleSlug" property="slug"/>
         <result column="articleTitle" property="title"/>
@@ -29,7 +29,7 @@
         </collection>
     </resultMap>
 
-    <resultMap id="commentData" type="com.msjc.realworld.infra.dmr.data.CommentData">
+    <resultMap id="commentData" type="icu.ngte.realworld.infra.dmr.data.CommentData">
         <id column="commentId" property="id"/>
         <result column="commentBody" property="body"/>
         <result column="commentCreatedAt" property="createdAt"/>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <springProfile name="dev | local">
+    <property name="APP_NAME" value="ufc-be"/>
+    <property name="LOG_PATH" value="${user.home}/.logs/${APP_NAME}/logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
+  </springProfile>
+
+  <springProfile name="default">
+    <property name="APP_NAME" value="ufc-be"/>
+    <property name="LOG_PATH" value="/tmp/files/logs/${APP_NAME}/logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
+  </springProfile>
+
+  <!-- https://github.com/spring-projects/spring-boot/blob/v1.4.2.RELEASE/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml -->
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+    name="APPLICATION">
+    <encoder>
+      <charset>utf8</charset>
+      <pattern><![CDATA[
+        %d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %X{TRACE_ID} %X{USER_ID} %-5level %logger.%M - %msg%n
+      ]]></pattern>
+    </encoder>
+    <file>${LOG_FILE}</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <maxFileSize>5MB</maxFileSize>
+      <maxHistory>100</maxHistory>
+      <totalSizeCap>20GB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
+    <encoder>
+      <charset>utf8</charset>
+      <pattern><![CDATA[
+        %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %cyan(%X{TRACE_ID}) %cyan(%X{USER_DETAIL_ID}) %logger{36}.%M - %msg%n
+      ]]></pattern>
+    </encoder>
+  </appender>
+
+
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+  <logger additivity="false" level="WARN" name="com.unionfab.cloud.infra.tunnel.ufcdb.mapper">
+    <appender-ref ref="APPLICATION"/>
+  </logger>
+  <logger additivity="false" level="INFO" name="com.unionfab">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="APPLICATION"/>
+  </logger>
+
+  <root level="WARN">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="APPLICATION"/>
+  </root>
+</configuration>
