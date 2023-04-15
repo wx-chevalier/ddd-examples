@@ -1,0 +1,79 @@
+{
+  "name": "codelytv/php-ddd-example",
+  "license": "MIT",
+  "type": "project",
+  "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
+  "require": {
+    "php": "^8.1",
+
+    "ext-amqp": "*",
+    "ext-apcu": "*",
+    "ext-json": "*",
+    "ext-zend-opcache": "*",
+    "ext-pdo": "*",
+
+    "symfony/framework-bundle": "^6",
+    "symfony/messenger": "^6",
+    "symfony/dotenv": "^6",
+    "symfony/yaml": "^6",
+    "symfony/twig-bundle": "^6",
+    "symfony/validator": "^6",
+    "symfony/cache": "^6",
+
+    "lambdish/phunctional": "^2",
+
+    "ramsey/uuid": "^4",
+
+    "doctrine/dbal": "^3",
+    "doctrine/orm": "^2",
+
+    "ocramius/proxy-manager": "^2",
+    "laminas/laminas-zendframework-bridge": "^1",
+
+    "elasticsearch/elasticsearch": "^7",
+    "monolog/monolog": "^3",
+
+    "endclothing/prometheus_client_php": "^1"
+  },
+  "require-dev": {
+    "ext-xdebug": "*",
+
+    "roave/security-advisories": "dev-master",
+
+    "behat/behat": "^3",
+    "friends-of-behat/mink-extension": "^2",
+    "friends-of-behat/symfony-extension": "^2",
+    "behat/mink-browserkit-driver": "^2",
+
+    "phpunit/phpunit": "^9",
+    "mockery/mockery": "^1",
+
+    "fakerphp/faker": "^1",
+
+    "symfony/error-handler": "^6",
+    "vimeo/psalm": "^4",
+    "friendsofphp/php-cs-fixer": "^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "CodelyTv\\Apps\\Mooc\\Backend\\": "apps/mooc/backend/src",
+      "CodelyTv\\Apps\\Mooc\\Frontend\\": "apps/mooc/frontend/src",
+
+      "CodelyTv\\Apps\\Backoffice\\Backend\\": "apps/backoffice/backend/src",
+      "CodelyTv\\Apps\\Backoffice\\Frontend\\": "apps/backoffice/frontend/src",
+
+      "CodelyTv\\": ["src"]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CodelyTv\\Tests\\": ["tests"]
+    }
+  },
+  "minimum-stability": "RC",
+  "config": {
+    "allow-plugins": {
+      "ocramius/package-versions": true
+    }
+  }
+}

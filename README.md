@@ -7,12 +7,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/ms-spring-ddd-examples">
+  <a href="https://github.com/wx-chevalier/repo">
     <img src="header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
-    <a href="https://github.com/wx-chevalier/ms-java-commons">Demo</a>
+    <a href="https://github.com/wx-chevalier/repo">Demo</a>
     ·
     <a href="https://github.com/wx-chevalier">更多项目</a>
     ·
@@ -22,78 +22,51 @@
 
 <!-- ABOUT THE PROJECT -->
 
-# ms-spring-ddd-examples
+# Introduction
 
-Unified Domain-driven Layered Architecture for MicroService Apps，试图探索一套切实可行的应用架构规范，可以复制、可以理解、可以落地、可以控制复杂性的指导和约束。
+[![Product Name Screen Shot](https://s2.ax1x.com/2020/01/06/lr2YdJ.md.png)](https://example.com)
 
-For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
+Here's a blank template to get started:
+**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+`wx-chevalier`, `repo`, `twitter_handle`, `email`
 
-_WIP_，项目正在逐步开放中，对于软件架构与领域驱动设计请参考[Software Architecture Series 软件架构设计](https://ng-tech.icu/SoftwareArchitecture-Series)系列文章，关于 Spring 相关学习参考 [Spring Series](http://ng-tech.icu/Spring-Series/#/)。
+## Nav | 导航
 
-![UDLA](https://s2.ax1x.com/2019/12/19/QbTcdg.png)
+# Getting Started
 
-![洋葱圈图](https://i.postimg.cc/nLfGKdng/image.png)
+To get a local copy up and running follow these simple steps.
 
-# Usage
+## Prerequisites
 
-## IDE
+This is an example of how to list things you need to use the software and how to install them.
 
-安装 google-java-format 和 lombok 插件；在配置中 Editor | Code Style | scheme 中导入 `conf/intellij-java-google-style.xml` 风格配置。
-
-## Database Migration
-
-使用 flyway 进行数据库迁移，迁移脚本默认放在 `infra/src/main/resources/db/migration` 下，在
-`infra/build.gradle` 已经默认配置了测试数据库。
+- npm
 
 ```sh
-./gradlew flywayInfo
-./gradlew :realworld:infra:flywayInfo
+npm install npm@latest -g
 ```
 
-可以通过 `flyway.configFiles` 来替换配置文件：
+## Installation
+
+1. Clone the repo
 
 ```sh
-./gradlew -Pflyway.configFiles=/path/to/flyway.conf flywayInfo
+git clone https://github.com/wx-chevalier/repo.git
 ```
 
-flyway 依赖在 com.udma.core.infra 子项目中添加，如果配置文件使用相对路径，它相对的将是该子项目根目录。如在根目录中执行命令，要使用 `conf/flyway-local.conf` 配置：
+2. Install NPM packages
 
 ```sh
-./gradlew -Pflyway.configFiles=../conf/flyway-local.conf flywayInfo
+npm install
 ```
 
-数据库迁移脚本的命名见 [https://flywaydb.org/documentation/migrations#naming](https://flywaydb.org/documentation/migrations#naming)。我们正常使用的就是 Versioned
-Migrations。
+<!-- USAGE EXAMPLES -->
 
-## Deployment
+## Usage
 
-此部署指部署 Web 应用。
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-- 本地部署
-
-```sh
-cp config/env.tpl .dev.env
-# 设定 .dev.env 中的环境变量
-
-# 构建、推送镜像
-(source .dev.env && ./scripts/docker/build-locally.sh)
-# 部署
-(source .dev.env && ./scripts/deploy-locally.sh)
-```
-
-- 正式版本部署
-
-```sh
-git checkout master
-git merge dev
-
-# 修改 .prod.env 版本如 1.0
-(source .prod.env && ./scripts/docker/build-locally.sh && ./scripts/deploy-locally.sh)
-
-# 部署成功后，推送对应 tag
-git tag 1.0 -m
-git push --tags
-```
+_For more examples, please refer to the [Documentation](https://example.com)_
 
 # About
 
@@ -101,9 +74,7 @@ git push --tags
 
 ## Roadmap
 
-See the [open issues](https://github.com/wx-chevalier/ms-java-commons/issues) for a list of proposed features (and known issues).
-
-- [ ] 支持 Spring Native
+See the [open issues](https://github.com/wx-chevalier/repo/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -128,10 +99,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Acknowledgements
 
 - [Awesome-Lists](https://github.com/wx-chevalier/Awesome-Lists): 📚 Guide to Galaxy, curated, worthy and up-to-date links/reading list for ITCS-Coding/Algorithm/SoftwareArchitecture/AI. 💫 ITCS-编程/算法/软件架构/人工智能等领域的文章/书籍/资料/项目链接精选。
+
 - [Awesome-CS-Books](https://github.com/wx-chevalier/Awesome-CS-Books): :books: Awesome CS Books/Series(.pdf by git lfs) Warehouse for Geeks, ProgrammingLanguage, SoftwareEngineering, Web, AI, ServerSideApplication, Infrastructure, FE etc. :dizzy: 优秀计算机科学与技术领域相关的书籍归档。
-- [Hutool #Project#](https://www.hutool.cn/): A set of com.udma.core.tools that keep Java sweet.
-- [freedom](https://github.com/8treenet/freedom): freedom 是一个基于六边形架构的框架，可以支撑充血的领域模型范式。
-- [whatsmars #Project#](https://github.com/javahongxi/whatsmars): Java生态研究(Spring Boot + Redis + Dubbo + RocketMQ + Elasticsearch)🔥🔥🔥🔥🔥
 
 ## Copyright & More | 延伸阅读
 
@@ -142,13 +111,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/ms-java-commons.svg?style=flat-square
-[contributors-url]: https://github.com/wx-chevalier/ms-java-commons/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/ms-java-commons.svg?style=flat-square
-[forks-url]: https://github.com/wx-chevalier/ms-java-commons/network/members
-[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/ms-java-commons.svg?style=flat-square
-[stars-url]: https://github.com/wx-chevalier/ms-java-commons/stargazers
-[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/ms-java-commons.svg?style=flat-square
-[issues-url]: https://github.com/wx-chevalier/ms-java-commons/issues
-[license-shield]: https://img.shields.io/github/license/wx-chevalier/ms-java-commons.svg?style=flat-square
-[license-url]: https://github.com/wx-chevalier/ms-java-commons/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/repo.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/repo.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/repo.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/repo.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/repo/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/repo.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/repo/blob/master/LICENSE.txt
