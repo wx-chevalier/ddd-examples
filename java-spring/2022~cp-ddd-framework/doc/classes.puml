@@ -1,0 +1,61 @@
+@startuml
+skinparam handwritten false
+skinparam shadowing<<with_shadow>> true
+left to right direction
+
+package plugin <<Frame>> {
+    interface IIdentityResolver
+    interface IDomainExtension
+    interface IPlugable
+    interface IPolicy
+    annotation Partner
+    annotation Pattern
+    annotation Policy
+    annotation Extension
+}
+
+note "hot reloadable" as N1
+plugin .. N1
+
+IPlugable <|-- IDomainExtension
+IPlugable <|-- IIdentityResolver
+
+Extension : code(Pattern/Partner/Policy)
+
+annotation Router
+
+abstract BaseRouter
+BaseRouter : #forEachExtension()
+BaseRouter : #firstExtension()
+BaseRouter : {abstract} +defaultExtension()
+DDD : {static} +useRouter()
+DDD : {static} +usePolicy()
+IIdentityResolver : match(IIdentity)
+
+IIdentityResolver <|-- Pattern
+IIdentityResolver <|-- Partner
+
+IPolicy : +extensionCode()
+
+Router .. BaseRouter
+Policy <|-- IPolicy
+
+BaseRouter <-- DDD
+IPolicy <-- DDD
+
+Container : {static} +loadPluginJar(code, ver)
+
+Container --> plugin
+
+Partner : code
+Pattern : code
+Pattern : priority
+
+package plus <<Frame>> {
+    Extension1 --|> Extension
+    Extension2 --|> Extension
+    Extension3 --|> Extension
+    ExtensionN --|> Extension
+}
+
+@enduml

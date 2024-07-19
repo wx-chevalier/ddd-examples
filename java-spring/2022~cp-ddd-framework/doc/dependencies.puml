@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+component [dddplus-spec] as spec
+component [dddplus-runtime] as runtime
+component [dddplus-visualization] as visualization
+component [dddplus-enforce] as enforce
+component [dddplus-maven-plugin] as mavenplugin
+
+runtime -> spec: depends
+enforce -> runtime: depends
+visualization -> spec: depends
+mavenplugin -> visualization: depends
+@enduml
