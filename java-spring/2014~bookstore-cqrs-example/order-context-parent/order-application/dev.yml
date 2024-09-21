@@ -1,0 +1,20 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8070
+  adminConnectors:
+    - type: http
+      port: 9070
+
+logging:
+  level: INFO
+  loggers:
+    se.citerus: DEBUG
+
+  appenders:
+    - type: console
+
+#eventStore : se.citerus.cqrs.bookstore.ordercontext.application.infrastructure.SimpleFileBasedEventStore
+eventStore : se.citerus.cqrs.bookstore.ordercontext.application.infrastructure.InMemoryDomainEventStore
+
+productCatalogServiceUrl : http://localhost:8090/products/
